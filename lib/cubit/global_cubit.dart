@@ -5,7 +5,7 @@ import 'package:new_moon_app/components/const.dart';
 import 'package:new_moon_app/screens/bnb_screens/home_screen.dart';
 import 'package:new_moon_app/screens/bnb_screens/prayer_screen.dart';
 import 'package:new_moon_app/screens/bnb_screens/temperature_screen.dart';
-
+import 'package:new_moon_app/weather/screens/loading_screen.dart';
 
 import '../components/global_componnets.dart';
 import '../screens/bnb_screens/qibla_screen.dart';
@@ -20,30 +20,31 @@ class GlobalCubit extends Cubit<GlobalStates> {
 
   //kDarkPlaceholderText
 
-  List<Widget> screens  = [
+  List<Widget> screens = [
     HomeScreen(),
     QiblaScreen(),
-    TemperatureScreen(),
+    LoadingScreen(),
     PrayerScreen(),
   ];
-          //cloudy
+  //cloudy
   List<Widget> bottomItems = [
     Padding(
-      padding: const EdgeInsets.only(right: 2.5 , bottom: 2),
-      child: svgImage("home" , color:primaryColor , size: 25),
+      padding: const EdgeInsets.only(right: 2.5, bottom: 2),
+      child: svgImage("home", color: primaryColor, size: 25),
     ),
-    Image.asset("assets/icons/qibla.png",),
-    Image.asset("assets/icons/cloudy.png" ,),
-    Image.asset("assets/icons/prayer.png" ,),
-
-
+    Image.asset(
+      "assets/icons/qibla.png",
+    ),
+    Image.asset(
+      "assets/icons/cloudy.png",
+    ),
+    Image.asset(
+      "assets/icons/prayer.png",
+    ),
   ];
 
   void changeBottomNav(int index) {
     currentIndex = index;
     emit(ChangeBottomNavState());
   }
-
-
-
 }
